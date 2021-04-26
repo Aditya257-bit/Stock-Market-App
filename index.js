@@ -37,8 +37,7 @@ app.post("/savestockData", (req, res) => {
         name: req.body.name,
         symbol: req.body.symbol,
         current_price: req.body.current_price,
-        market_cap: req.body.market_cap,
-        isStatus: req.body.isStatus
+        market_cap: req.body.market_cap
     })
 
     addStockData.save().then((stock) => {
@@ -63,9 +62,9 @@ app.delete('/deleteStockData', (req, res) => {
 })
 
 
-if(process.env.NODE_ENV == "production"){
-    app.use(express.static("tracker-app/build"))
-}
+// if(process.env.NODE_ENV == "production"){
+//     app.use(express.static("tracker-app/build"))
+// }
 
 
 app.listen(port, () => {
